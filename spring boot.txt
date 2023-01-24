@@ -1,0 +1,51 @@
+Spring framework:
+-----------------
+	an application framework that provides infrastructure support to develop java based 
+applications.
+
+Spring Boot:
+----------- 
+	creates production ready spring based applications without requiring to write same 
+configuration again and again.
+
+Features:
+--------
+->Spring boot starters
+->Spring Boot autoconfiguration
+->Externalized configuration
+->Spring Boot actuator
+->Easy-to-use embedded servlet container support
+
+Different ways to create spring boot project:
+---------------------------------------------
+1. Using spring initializr-(start.spring.io)
+2. Using spring starter project in STS(Eclipse)-(Spring Tool Suite IDE)
+3.Spring Boot CLI(command line tool)-(download CLI and create)
+
+Spring Boot auto configuration:
+------------------------------
+	automatically configures the spring application based on the jar dependencies added.
+
+Why auto configuration:
+-----------------------
+->Spring based applications have a lot of configurations.
+->So, automation of these configurations tasks is provided by spring boot.
+->Spring boot automatically configures based on the dependencies added in the class path.
+
+@SpringBootApplication:
+----------------------
+this annotation contains internally three annotations
+
+->@SpringBootConfiguration internally uses @Configuration
+	@SpringBootConfiguration works as @Configuration. @Configuration is used to provide 
+configuration as java based configuration. We can do three types of configuration-
+	1. XML based configuration
+	2. Java based configuration(create a java class and annotate it with @Configuration)
+	3. Annotaion based configuration
+
+->@EnableAutoConfiguration
+	enables auto configuration classes for our spring boot application.
+
+->@ComponentScan
+	to scan spring components in particular package and its sub packages.
+

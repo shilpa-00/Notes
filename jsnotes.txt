@@ -1,0 +1,105 @@
+Namaste JavaScript - Akshay Saini
+
+
+JavaScript - Synchronous and single-threaded language(one line at a time).
+
+
+JavaScript Execution:
+---------------------
+JS Engine - call stack - all the lines to be executed are stored
+		|  |
+		|  |
+		|  |
+		|__|->GEC(Global Execution Context)
+
+--> Global Execution Context- two components
+		1. Memory(Memory phase)
+		2. Code(Code phase)
+--> All the variables and functions are allocated memory in memory phase.
+		variables (a:undefined) and functions (function body)
+--> Code is executed in code phase.
+--> For every function invocation a new execution context is created.
+--> Execution Context of a function is deleted once the function is finished executing.
+
+
+Hoisting:
+---------
+Hoisting-process where the interpreter appears to move the declaration of functions, 
+variables or classes to the top of their scope, prior to execution of the code. 
+(accessing function, variables before they are initialized)
+				
+
+Window:
+-------
+JS Engine creates a GEC for even an empty js file. It also creates window and this(keyword).
+Window is actually a global object which is created along with the GEC.
+-->Global space(any code which is written outside of all functions)
+
+		var a=10;      --------> Global space can be reffered as window.a or this.a
+		function a(){  --------> Global space
+		    var b=20;  --------> Local space
+		}
+
+
+Undefined vs Not-defined:
+-------------------------
+Undefined - placeholder in memory for variables that are not yet initialized
+Not-defined - accessing variables that are not defined
+
+
+Scope, Lexical Environment, Scope Chain:
+----------------------------------------
+Scope - where a variable is available in code.
+Lexical Environment - local memory + lexical environment of parent.
+Scope chain - every function defined has its own nested scope, and any function defined 
+	      within another function has a local scope which is linked to the outer function. 
+	      This link is called the chain.
+
+
+var let and const:
+------------------
+--> let and const variables are also hoisted but these are in temporal dead zone.
+--> let and const variables can be accessed only after initialization.
+--> Temporal Dead Zone starts when the code execution enters the block which contains the let 
+    or const declaration and continues until the declaration has executed. 
+--> let and const variables are not attached to window object. They are in seperate space.
+--> let and const variables cant be re-declaration.
+--> const declarations should have initialization which cant be initialized later.
+--> const variables cant be re-initialized.
+--> Block - A block statement is used to group zero or more statements.
+		if(true)
+		{
+		    //block - wraps mulitple statements
+		}
+--> Block scope - variables and functions that can be accessed in a block.
+--> var is function scope variables.
+--> let and const are block scope variables.
+		{
+    			var a=10;
+    			let b=20;
+    			const c=30;
+    			console.log(a);
+    			console.log(b);
+    			console.log(c);
+		}
+		console.log(a);
+		console.log(b);//Error
+		console.log(c);//Error
+--> Shadowing - shadowing occurs when a variable declared in a certain scope (e.g. a local 
+		variable) has the same name as a variable in an outer scope (e.g. a global 
+		variable).
+
+
+Closures:
+---------
+Closure - function along with its lexical scope.
+		function a(){
+    		var x=7
+    		function c(){
+        		console.log(x);//7
+    		}
+    		return c;
+		}
+		var b=a();//Execution context of a() is deleted
+		b();//but still logs x value as 7
+--> function along with its lexical scope bundled together forms a closure.
